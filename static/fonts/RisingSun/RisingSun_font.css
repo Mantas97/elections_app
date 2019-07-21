@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'RisingSunBold';
+    src: url('RisingSun-Bold.otf');
+}
+
+@font-face {
+    font-family: 'RisingSunDemiBold';
+    src: url('RisingSun-DemiBold.otf');
+}
+
+
+@font-face {
+    font-family: 'RisingSunRegular';
+    src: url('RisingSun-Regular.otf');
+}

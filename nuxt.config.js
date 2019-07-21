@@ -9,13 +9,21 @@ module.exports = {
   */
   head: {
     title: pkg.name,
+    script: [
+      { src: '/scripts/materialize.min.js' },
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Playfair+Display|Archivo|Roboto|Raleway'},
+      {href:"https://fonts.googleapis.com/icon?family=Material+Icons", rel:"stylesheet"},
+
+      // OFFLINE FONT
+      {rel:"stylesheet", href:"/fonts/RisingSun/RisingSun_font.css"},
     ]
   },
 
@@ -28,18 +36,22 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    "~/assets/styles/materialize-framework.css",
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/firebase.js',
+    '~/plugins/bus'
   ],
 
   /*
   ** Nuxt.js modules
   */
-  modules: [
+  modules: [,
+    '@nuxtjs/pwa'
   ],
 
   /*
@@ -52,5 +64,6 @@ module.exports = {
     extend(config, ctx) {
       
     }
-  }
+  },
+
 }

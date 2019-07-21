@@ -1,0 +1,109 @@
+FONTLOG for the Rising Sun fonts
+
+This file provides detailed information on the Rising Sun Font Software.
+
+This information should be distributed along with the Rising Sun fonts and any
+derivative works.
+
+Basic Font Information
+
+About original Raleway:
+Raleway is an elegant sans-serif typeface family. Initially designed by
+Matt McInerney as a single thin weight, it was expanded into a 9 weight family by Pablo Impallari and Rodrigo Fuenzalida in 2012 and iKerned by Igino Marini.
+
+It is a display face and the download features both old style and lining
+numerals, standard and discretionary ligatures, a pretty complete set of
+diacritics, as well as a stylistic alternate inspired by more geometric
+sans-serif typefaces than its neo-grotesque inspired default character 
+set.
+
+It also has a sister display family, Raleway Dots.
+
+Also, the characters set has been expanded to cover 104 Latin languages: 
+Afar, Afrikaans, Albanian, Azerbaijani, Basque, Belarusian, Bislama, Bosnian, Breton, Catalan, Chamorro, Chichewa, Comorian, Croatian, Czech, Danish, Dutch, English, Esperanto, Estonian, Faroese, Fijian, Filipino/Tagalog, Finnish, Flemish, French, Gaelic (Irish / Manx / Scottish), Gagauz, German, Gikuyu, Gilbertese/Kiribati, Greenlandic, Guarani, Haitian_Creole, Hawaiian, Hungarian, Icelandic, Igo/Igbo, Indonesian, Irish, Italian, Javanese, Kashubian, Kinyarwanda, Kirundi, Latin, Latvian, Lithuanian, Luba/Ciluba/Kasai, Luxembourgish, Malagasy, Malay, Maltese, Maori, Marquesan, Marshallese, Moldovan/Moldovian/Romanian, Montenegrin, Nauruan, Ndebele, Norwegian, Oromo, Palauan/Belauan, Polish, Portuguese, Quechua, Romanian, Romansh, Sami, Samoan, Sango, Serbian, Sesotho, Setswana/Sitswana/Tswana, Seychellois_Creole, SiSwati/Swati/Swazi, Silesian, Slovak, Slovenian, Somali, Sorbian, Sotho, Spanish, Swahili, Swedish, Tahitian, Tetum, Tok_Pisin, Tongan, Tsonga, Tswana, Tuareg/Berber, Turkish, Turkmen, Tuvaluan, Uzbek/Usbek, Wallisian, Walloon, Welsh, Xhosa, Yoruba, Zulu.
+
+The Roman Styles also include support for the following 17 Cyrillic languages:
+Balkar, Belarusian, Bosnian, Chukchi, Crimean_Tartar, Erzya, Karachay, Kumyk, Lak, 
+Macedonian, Moksha, Montenegrin, Nanai, Nogai, Rusyn, Serbian, Ukranian
+
+Documentation can be found at http://www.theleagueofmoveabletype.com and
+www.impallari.com
+
+To contribute to the project contact Matt McInerney at matt@matt.cc or Pablo
+Impallari at impallari@gmail.com
+
+About Rising Sun:
+It is a fork of Raleway, with main changes being: Renaming many weights, Name applied per-weight [except, obviously, Regular and Bold] (and not one name for all weights, as original Raleway did), Flattening of lining figures (solving a problem found at: <http://stackoverflow.com/questions/22528804/get-raleway-lining-numerals-for-system-font-usage>), and Removing Extralight and Medium weights.
+It is actually a continuation of the development of above typeface.
+
+ChangeLog
+
+17 Jun 2016 (Cristiano Sobral) - Rising Sun v1.0
+- Changes in Font Info, section 'About Rising Sun'
+
+24 Sept 2013  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v3.0
+- Added Cyrillic to the 9 Roman Weights
+
+26 Jun 2013  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v2.5
+- Charset Extension, now covering 104 Latin Languages.
+- Italics Added
+- Re-mastered
+
+27 May 2013  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v2.4 (Beta)
+- Italic Masters, ready for iKern
+
+1 May 2013  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v2.3 (Beta)
+- More diactritics added, now supporting all 104 Latin languages
+- Added /Delta /Omega /estimated /infinity /integral /lozenge /partialdiff /pi /product /radical /summation /uni0394 /uni03A9 /uni2113
+- Lots of small bugs fixed
+
+11 Nov 2012  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v2.2
+- Fixed Font Info and other small bugs.
+- 'Heavy' style renamed as 'Black'
+- Hinted using the latest version of TTFAutohint, currently v0.9.3.
+- Removed the KERN table, now we are using GPOS based Kerning.
+- Smaller file size for faster loading on the web.
+- Al '-OT' sources files renamed as '-OTF'
+
+7 Sept 2012  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v2.1
+- Fixed vertical metrics bug
+
+11 May 2012  (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family v2.0
+- iKerned
+- Remastered
+
+30 March 2012 (Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida) Raleway Family Beta v1.06
+- Initial Beta release of the family expansion - Not yet spaced or Kerned.
+- 9 Weights: Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold and Heavy weights.
+- Characters set expanded to cover 95 languages
+- For detailed inspection, please refer to the the FL source files (The OTF files where quickly generated using Ben Kiel's Font Generator macro, for testing purposes only).
+
+20 Feb 2010 (Matt McInerney) Raleway Light v1.01
+- Initial Release
+
+Acknowledgements
+
+If you make modifications be sure to add your name (N), 
+email (E), web-address (if you have one) (W) and 
+description (D). This list is in alphabetical order.
+
+N: Cristiano Sobral
+E: cssobral2013@gmail.com
+W: none
+D: Changes in Font Info, section 'About Rising Sun'
+
+N: Matt McInerney
+E: matt@pixelspread.com
+W: http://pixelspread.com/
+D: Designer
+
+N: Pablo Impallari
+E: impallari@gmail.com
+W: http://www.impallari.com
+D: Designer
+
+N: Rodrigo Fuenzalida
+E: hello@rfuenzalida.com
+W: http://www.rfuenzalida.com
+D: Designer
+

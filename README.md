@@ -1,6 +1,5 @@
 # elections_app
 
-<<<<<<< HEAD
 > Vue + Nuxt + Firebase project
 
 ## Build Setup
@@ -21,12 +20,14 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-=======
 
 Project goal: Create SPA and improve Vue.js + Nuxt + Google Firebase skills. Make use of CRUD operations and learn about Cloud Functions (node.js)
-Link:
+
+Main idea: Platform which holds official information and events covered by media or captured by people about candidates running for election. Users would be able to add posts and upvote or downvote them indicating whether the information help to see a bigger picture about the candidate.
+
+Link to app:
+
 
 Cloud Functions: /elections/
 Photos for testing /elections
 
->>>>>>> 2f10ec4b7ec706a8450d0e93453835e659c075aa

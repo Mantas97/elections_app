@@ -1,68 +1,173 @@
 <template>
-  <section class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        elections_app
-      </h1>
-      <h2 class="subtitle">
-        Vue + Nuxt + Firebase project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >GitHub</a>
-      </div>
+  <section class="background">
+    <div class="row title">
+      <h4 class="center-align"> Kandidatai į prezidentus</h4>
     </div>
+
+    <section class="content">
+
+      <CandList></CandList>
+      
+      <no-ssr><Bio 
+        :birthday="currentBio.birthday"
+        :cand_id="currentBio.cand_id"
+        :education="currentBio.education"
+        :family="currentBio.family"
+        :image="currentBio.img"
+        :lang="currentBio.languages"
+        :name="currentBio.name"
+        :party="currentBio.party"
+        :position="currentBio.position"
+        :website="currentBio.website"
+      /></no-ssr>
+       
+      
+      <section class="sec2">
+        <div class="sec_bord">
+
+          <CandSections :showPrp='show' @changeSection="section(`${$event}`)"></CandSections>
+
+          <MobileCandSec :showPrp='show' @changeSection="section(`${$event}`)"></MobileCandSec>
+
+          <div class="row details no_mar">
+
+            <h5> {{show}} </h5>
+            <a class="btn-floating btn-large waves-effect waves-light red right modal-trigger" href="#modal1"><i class="material-icons">add</i></a>
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+              <Modal 
+                :candName="currentBio.name" 
+                :section="show"
+                @submitForm="closeModal($event)"
+                ref="modal"
+                />
+            </div>
+
+            <h5 v-if="currentCards == undefined">Informacijos šioje skiltyje nėra, palikite pirmą įrašą!</h5>
+            <Cards
+              v-else 
+              v-for="(card, index) in currentCards" :key="index"
+              :title="card.title"
+              :content="card.content"
+              :imgLink="card.downloadLink"
+              :id="card.id"
+              @openModal="openModal($event)"
+              @delCard="deleteCard($event)"
+            />
+            
+          </div>
+
+        </div>
+
+      </section>
+
+    </section>    
+
   </section>
 </template>
 
+
 <script>
-import Logo from '~/components/Logo.vue'
+
+// COMPONENTS
+import Bio from '~/components/bio/Bio'
+import Cards from '~/components/details/Cards'
+import Modal from '~/components/details/Modal'
+import CandList from '~/components/selections/CandList'
+import CandSections from '~/components/selections/CandSections'
+import MobileCandSec from '~/components/selections/MobileCandSec'
+
+// MIXINS
+import { activeCand } from '~/assets/mixins/activeCand'
+// CUSTOM PLUGINS
+import { eventBus } from '~/plugins/bus'
 
 export default {
+  mixins: [activeCand],
   components: {
-    Logo
+    Bio,
+    Cards,
+    Modal,
+    CandList,
+    CandSections,
+    MobileCandSec
+  },
+  methods: {
+    // Change current section name and fetch new cards
+    section(secName) {
+      let name = this.currentBio.name;
+      eventBus.$emit('changeSec', secName);
+      this.$store.dispatch('getCandidatesCards', [name, secName]);
+      return this.show = secName;
+    },
+    // Get data on load
+    loadData(){
+      this.$store.dispatch('getCandidatesBio');
+      this.$store.dispatch('getCandidatesCards');
+    },
+    closeModal(){
+      var elem = document.getElementById('modal1');
+      var instance = M.Modal.getInstance(elem);
+      instance.close();
+    },    
+    openModal(id){
+      var elem = document.getElementById('modal1');
+      var instance = M.Modal.getInstance(elem);
+      this.$refs.modal.loadFields(id);
+      instance.open();
+      
+    },
+    deleteCard(id){
+      let cardID = id;
+      let docRef = "/candidates/" + this.act + "/info/" + this.show;
+      console.log("deleteCard docRef: " + docRef);
+
+      this.$store.dispatch('deleteCard', {
+        cardID: id,
+        docRef: docRef
+      })
+
+      // Load updated cards object
+      this.$store.dispatch('getCandidatesCards', [this.act, this.show]);
+    }
+
+  },
+
+  computed: {
+    currentBio(){
+      return this.$store.getters.currentBio;
+    },
+    currentCards(){
+      return this.$store.getters.currentCards;
+    },
+
+  },
+
+  // Before creating DOM, getting first candidate data
+  beforeMount(){
+    this.loadData();
+  },
+
+  mounted(){
+    M.AutoInit();
+  },
+
+  head(){
+      return{
+        link:[
+            {rel:"stylesheet", href:"/styles/main.css"},
+        ]
+      }
   }
+
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style scoped>
+@media only screen and (max-width: 500px) {
+  .modal {
+      width: 100% !important;
+  }
 }
 </style>
+
