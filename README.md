@@ -5,7 +5,7 @@ Project goal: Create SPA and improve Vue.js + Nuxt + Google Firebase skills. Mak
 Main idea: Platform which holds official information and events covered by media or captured by people about candidates running for election. Users would be able to add posts and upvote or downvote them indicating whether the information help to see a bigger picture about the candidate.
 
 
-Link to app: https://rinkimai-87143.firebaseapp.com/
+Link to app: https://rinkimai-87143.web.app
 
 Photos for testing elections_app/static/test_images
 
