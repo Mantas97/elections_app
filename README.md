@@ -7,7 +7,7 @@ Main idea: Platform which holds official information and events covered by media
 
 Link to app: https://rinkimai-87143.firebaseapp.com/
 
-Photos for testing /elections
+Photos for testing elections_app/static/test_images
 
 ## Build Setup
 
